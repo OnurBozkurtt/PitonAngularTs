@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Login Form</title>
+  <link rel="stylesheet" href="register.component.css" />
+</head>
+
+<body>
+  <div class="center">
+    <h1>Sign Up</h1>
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="txt_field">
+        <label for="username">firstName</label>
+        <input type="text" class="form-control" name="firstName" [(ngModel)]="form.username" required minlength="3"
+          maxlength="20" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+          <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+            <div *ngIf="username.errors['required']">firstName is required</div>
+          </div>
+      </div>
+      <div class="txt_field">
+        <label for="username">lastName</label>
+        <input type="text" class="form-control" name="lastName" [(ngModel)]="form.username" required minlength="3"
+          maxlength="20" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+          <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+            <div *ngIf="username.errors['required']">lastName is required</div>
+          </div>
+      </div>
+      <div class="txt_field">
+        <label for="name">Mobile Number</label>
+        <input type="text" class="form-control" id="mobilenumber" required [(ngModel)]="form.mobile" name="mobilenumber"
+          pattern="[0-9]*" minlength="10" maxlength="10" #mobile="ngModel" />
+        <div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">
+          <div [hidden]="!mobile.hasError('minlength')">
+            Mobile should be 10digit
+          </div>
+          <div [hidden]="!mobile.hasError('required')">Mobile is required</div>
+          <div [hidden]="!mobile.hasError('pattern')">
+            Mobile number should be only numbers
+          </div>
+        </div>
+      </div>
+      <div class="txt_field">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
+        <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors['required']">Email is required</div>
+          <div *ngIf="email.errors['email']">
+            Email must be a valid email address
+          </div>
+        </div>
+      </div>
+      <div class="txt_field">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="txt_field">
+        <label for="password">confirmPassword</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">
+            Password is required for checking
+          </div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be 6-20 characters long and must be alphanumeric
+          </div>
+        </div>
+      </div>
+      <input type="submit" value="Sign Up" />
+      <div class="signup_link">Already have an account? <a href="login">Login</a></div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </div>
+</body>
+
+</html>

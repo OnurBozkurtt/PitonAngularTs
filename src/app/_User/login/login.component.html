@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Login Form</title>
+  <link rel="stylesheet" href="login.component.css" />
+</head>
+
+<body>
+    <div class="center">
+    <h1>Login</h1>
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="txt_field">
+        <label for="email">email</label>
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+        />
+        <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
+          email is required!
+        </div>
+      </div>
+      <div class="txt_field">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be 6-20 characters long
+          </div>
+        </div>
+      </div>
+      <input type="submit" value="Login" />
+        <div class="signup_link">Dont have an account? <a href="register">register</a></div>
+
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+          Login failed: {{ errorMessage }}
+        </div>
+     
+    </form>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in.
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+
