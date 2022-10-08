@@ -10,7 +10,7 @@ import { StorageService } from '../../_services/storage.service';
 export class LoginComponent implements OnInit {
   form: any = {
     email: null,
-    password: null
+    password: null,
   };
   isLoggedIn = false;
   isLoginFailed = false;
