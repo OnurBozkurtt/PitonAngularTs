@@ -60,11 +60,6 @@
         <tr (click)="getrow(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         <button type="button" class="btn btn-success" (click)="onSelect(product)"><i class="fas fa-list"></i></button>
       </table>
-    
-      <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
-    
-      </mat-paginator>
-      
     </div>
     </div>
   </body>

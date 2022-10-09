@@ -22,11 +22,11 @@ export class ProductService {
   constructor(private http: HttpClient) {
 
   }
-  GetProduct(): Observable<Product> {
-    return this.http.get<Product>(this.apiurl + 'all', httpOptions);
+  GetProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>('prod/api/v1/product/all', httpOptions);
   }
   GetProductbyID(id:any){
-    return this.http.get(this.apiurl + 'get'+id , httpOptions);
+    return this.http.get('prod/api/v1/product/get'+id , httpOptions);
   }
   
 }
