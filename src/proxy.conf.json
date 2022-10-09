@@ -1,7 +1,0 @@
-{
-    "/api/":{
-        "target":"https://assignment-api.piton.com.tr/api/v1",
-        "secure":false,
-        "logLevel": "debug"
-    }
-}

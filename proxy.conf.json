@@ -1,0 +1,8 @@
+{
+    "/prod/*":{
+        "target":"https://assignment-api.piton.com.tr",
+        "changeOrigin": true,
+        "secure":false,
+        "logLevel": "debug"
+    }
+}

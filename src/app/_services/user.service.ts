@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-const API_URL = 'https://assignment-api.piton.com.tr/api/v1/';
+import { BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
-  constructor(private http: HttpClient) {}
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user/login', { responseType: 'text' });
+export class userService {
+  private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this._isLoggedIn$.asObservable();
+
+  constructor(private AuthService: AuthService) {
+    const token = localStorage.getItem('access-token');
+    this._isLoggedIn$.next(!!token);
   }
 
+  login(username: string, password: string) {
+    return this.AuthService.login(username, password).pipe(
+      tap((response: any) => {
+        this._isLoggedIn$.next(true);
+        localStorage.setItem('access-token', response.token);
+      })
+    );
+  }
 }

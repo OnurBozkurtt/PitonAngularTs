@@ -23,10 +23,10 @@ export class ProductService {
 
   }
   GetProduct(): Observable<Product> {
-    return this.http.get<Product>(this.apiurl + 'all', httpOptions);
+    return this.http.get<Product>('https://assignment-api.piton.com.tr/product/all', httpOptions);
   }
   GetProductbyID(id:any){
-    return this.http.get(this.apiurl+'get'+id , httpOptions);
+    return this.http.get('https://assignment-api.piton.com.tr/product/get'+id , httpOptions);
   }
   
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const USER_KEY = 'auth-user';
+const USER_KEY = 'access-token';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,14 @@ export class StorageService {
   }
 
   public isLoggedIn(): boolean {
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user) {
+      return true;
+    }
+
+    return false;
+  }
+  public isSuccessful(): boolean {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
       return true;

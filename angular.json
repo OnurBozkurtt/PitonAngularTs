@@ -63,9 +63,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "options":{
+              "browserTarget": "pitonkatalogproje:build",
+              "proxyConfig": "proxy.conf.json"
+            },
             "production": {
-              "browserTarget": "pitonkatalogproje:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "pitonkatalogproje:build:production"
+             
             },
             "development": {
               "browserTarget": "pitonkatalogproje:build:development"

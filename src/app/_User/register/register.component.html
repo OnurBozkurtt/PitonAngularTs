@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
@@ -21,7 +20,7 @@
           <label for="name"></label>
           <input
             type="text"
-            placeholder="firstName-lastName"
+            placeholder="FirstName-LastName"
             class="form-control"
             name="firstName"
             [(ngModel)]="form.name"
@@ -37,26 +36,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="txt_field">
-          <label for="lastName"></label>
-          <input
-            type="text"
-            placeholder="lastName"
-            class="form-control"
-            name="lastName"
-            [(ngModel)]="form.lastName"
-            required
-            minlength="3"
-            maxlength="20"
-            #lastName="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }"
-          />
-          <div class="invalid-feedback" *ngIf="lastName.errors && f.submitted">
-            <div *ngIf="lastName.errors['required']">lastName is required</div>
-          </div>
-        </div> -->
-       
-      
           <div class="txt_field">
             <label for="Mobile"></label>
             <input
@@ -143,7 +122,7 @@
             </div>
           </div>
         </div>
-        <input type="submit" value="Register" onclick="" />
+        <input type="submit" value="Register" onclick="onsubmit">
         <div class="signup_link">
           Already have an account? <a href="login">Login</a>
         </div>
