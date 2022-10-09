@@ -16,7 +16,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     return this.http.post(
-      '/https://assignment-api.piton.com.tr/api/v1/user/login',
+      AUTH_API +'/user/login',
       {
         email,
         password,
@@ -27,7 +27,7 @@ export class AuthService {
 
   register(name: string, password: string, email: string): Observable<any> {
     return this.http.post(
-      '/https://assignment-api.piton.com.tr/api/v1/user/register',
+      AUTH_API +'/user/register',
       {
         name,
         password,

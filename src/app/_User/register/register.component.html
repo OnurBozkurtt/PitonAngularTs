@@ -46,12 +46,10 @@
               class="form-control"
               id="mobilenumber"
               required
-              [(ngModel)]="form.mobile"
               name="mobilenumber"
               pattern="[0-9]*"
               minlength="14"
               maxlength="14"
-              #mobile="ngModel"
               value=""
             />
         </div>
@@ -104,23 +102,10 @@
             autocomplete=""
             class="form-control"
             name="Password"
-            [(ngModel)]="form.confirmPassword"
             required
             minlength="6"
-            #confirmPassword="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.errors }"
           />
-          <div
-            class="invalid-feedback"
-            *ngIf="confirmPassword.errors && f.submitted"
-          >
-            <div *ngIf="confirmPassword.errors['required']">
-              Password is required for checking
-            </div>
-            <div *ngIf="confirmPassword.errors['minlength']">
-              Password must be 6-20 characters long and must be alphanumeric
-            </div>
-          </div>
+
         </div>
         <input type="submit" value="Register" onclick="onsubmit">
         <div class="signup_link">
