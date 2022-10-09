@@ -16,6 +16,7 @@ import { httpInterceptorProviders } from './_Helpers/http.interceptor';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     ProductComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
