@@ -4,7 +4,10 @@ import { Observable, Subject,tap } from 'rxjs';
 import { Product } from '../_Models/product';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' ,'Access-Control-Allow-Origin':'*' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'
+   ,'Access-Control-Allow-Origin':'*',
+   "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST",
+   "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"  })
 };
 
 @Injectable({

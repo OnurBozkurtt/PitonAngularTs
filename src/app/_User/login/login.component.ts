@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
+    
     const { email, password } = this.form;
 
     this.authService.login(email, password).subscribe({
@@ -39,7 +40,9 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     });
+    
   }
+
 
   reloadPage(): void {
     window.location.pathname="product";
