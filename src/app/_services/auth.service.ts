@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 const AUTH_API = 'https://assignment-api.piton.com.tr/api/v1';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' ,'Access-Control-Allow-Origin':'*' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'
+   ,'Access-Control-Allow-Origin':'*',
+   "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST",
+   "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"  })
 };
 
 @Injectable({
@@ -36,6 +39,7 @@ export class AuthService {
       httpOptions
     );
   }
+  
 
   logout(): Observable<any> {
     return this.http.post(AUTH_API + 'signout', { }, httpOptions);
